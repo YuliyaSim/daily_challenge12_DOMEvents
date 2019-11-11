@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>DOM EVENTS</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<div id="box-div" class="box">box</div>
+
+
+	<script>
+		var box = document.getElementById("box-div");
+		const root = document.getElementsByClassName("box");
+
+
+		box.addEventListener("click", clicked_me);
+		function clicked_me() {
+			box.innerHTML = "You clicked me!";
+		};
+
+		box.addEventListener("wheel", zoom);
+		function zoom() {
+			this.style.fontSize = "35px";
+		}
+
+
+
+		box.addEventListener("mouseenter", mouseEnter);
+		box.addEventListener("mouseleave", mouseLeave);
+
+		function mouseEnter() {
+			box.style.color = "#C71585";
+		};
+		function mouseLeave() {
+			box.style.color = "black";
+		};
+
+		box.addEventListener("drag", function(event) {
+			let _x = event.clientX;
+			let _y = event.clientY;
+			box.style.left = _x + "px";
+			box.style.top = _y + "px";
+			console.log ( "drag " + event.clientX  + " " +  event.clientY  );
+		});
+
+		box.addEventListener("dragend", function(event) {
+			let _x = event.clientX;
+			let _y = event.clientY;
+			box.style.left = _x + "px";
+			box.style.top = _y + "px";
+			console.log ( "dragend " + event.clientX  + " " +  event.clientY  );
+		});
+
+
+
+
+	</script>
+
+</body>
+</html>
+

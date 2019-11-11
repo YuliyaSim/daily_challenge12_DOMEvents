@@ -1,0 +1,9 @@
+.box{
+	border-style: dotted;
+	border-width: 5px;
+	/*color: red;*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+}
